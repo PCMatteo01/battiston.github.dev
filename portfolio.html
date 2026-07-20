@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Matteo Battiston</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar crosshair">
+    <div>
+      <div class="sidebar__id">FIG. 00 — IDENTITY</div>
+      <h1 class="sidebar__name">Matteo<br>Battiston</h1>
+      <div class="sidebar__contact">
+        <a href="https://linkedin.com/in/matteo-battiston" target="_blank" rel="noopener">in/ matteo-battiston</a>
+        <a href="mailto:matteo.battiston@example.com">matteo.battiston@example.com</a>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.html" class="is-active">Portfolio</a>
+      <a href="offtopic.html">Offtopic</a>
+    </nav>
+
+    <div class="sidebar__footer">Unity Developer<br>PC · VR · 3D</div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <section class="section">
+      <div class="eyebrow">FIG. 03 — PORTFOLIO</div>
+      <h2 class="section__title">Selected projects.</h2>
+      <p class="section__lead">Filter by platform or discipline.</p>
+
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter-chip is-active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="pc">PC</button>
+        <button class="filter-chip" data-filter="vr">VR</button>
+        <button class="filter-chip" data-filter="3d">3D Model</button>
+      </div>
+
+      <div class="project-grid" id="project-grid">
+
+        <!-- PROJECT CARD — duplicate this block per project -->
+        <article class="project-card" data-tags="pc vr">
+          <a href="project-example.html" class="project-card__media">
+            <!-- Replace with <img src="assets/your-image.jpg" alt="..."> or a <video> -->
+            IMAGE / VIDEO PLACEHOLDER
+          </a>
+          <div class="project-card__body">
+            <div class="project-card__tags"><span>PC</span><span>VR</span></div>
+            <h3 class="project-card__title">Project Title</h3>
+            <p class="project-card__desc">One-line summary of the project and your role in it.</p>
+            <a href="project-example.html" class="project-card__link">View project →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="3d">
+          <a href="project-example.html" class="project-card__media">
+            IMAGE / VIDEO PLACEHOLDER
+          </a>
+          <div class="project-card__body">
+            <div class="project-card__tags"><span>3D</span></div>
+            <h3 class="project-card__title">Another Project</h3>
+            <p class="project-card__desc">One-line summary of the project and your role in it.</p>
+            <a href="project-example.html" class="project-card__link">View project →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="pc">
+          <a href="project-example.html" class="project-card__media">
+            IMAGE / VIDEO PLACEHOLDER
+          </a>
+          <div class="project-card__body">
+            <div class="project-card__tags"><span>PC</span></div>
+            <h3 class="project-card__title">Third Project</h3>
+            <p class="project-card__desc">One-line summary of the project and your role in it.</p>
+            <a href="project-example.html" class="project-card__link">View project →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
