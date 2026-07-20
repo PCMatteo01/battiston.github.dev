@@ -1,19 +1,13 @@
 # Portfolio — starter scaffold
 
-## Struttura (multipagina)
+## Struttura
 ```
-index.html            → Home
-about.html             → About
-portfolio.html          → Portfolio con filtri (PC / VR / 3D Model)
-offtopic.html           → Offtopic
+index.html            → Home, About, Portfolio (con filtri), Offtopic
 project-example.html  → Template pagina di dettaglio progetto (duplicala per ogni progetto)
-css/style.css         → Tutto lo stile (design system "blueprint"), condiviso da tutte le pagine
-js/main.js            → Logica del filtro portfolio (usata solo in portfolio.html)
+css/style.css         → Tutto lo stile (design system "blueprint")
+js/main.js            → Filtro portfolio + evidenziazione voce menu attiva
 assets/               → Metti qui le tue immagini/video
 ```
-
-⚠️ La sidebar (nome, contatti, menu) è duplicata identica in ogni pagina HTML.
-Se cambi nome, email o link, aggiornali in **tutti** i file (index, about, portfolio, offtopic, project-example e ogni pagina progetto che crei).
 
 ## Come pubblicarlo su GitHub Pages
 

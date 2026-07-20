@@ -24,10 +24,10 @@
     </div>
 
     <nav class="sidebar__nav">
-      <a href="index.html" class="is-active">Home</a>
-      <a href="about.html">About</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="offtopic.html">Offtopic</a>
+      <a href="#home" class="is-active">Home</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#offtopic">Offtopic</a>
     </nav>
 
     <div class="sidebar__footer">Unity Developer<br>PC · VR · 3D</div>
@@ -36,7 +36,8 @@
   <!-- ============ MAIN ============ -->
   <main class="main">
 
-    <section class="section hero">
+    <!-- ---------- HOME ---------- -->
+    <section id="home" class="section hero">
       <div class="hero__role">FIG. 01 — OVERVIEW</div>
       <h2 class="hero__title">Building interactive systems<br>for <span>PC</span> and <span>VR</span>.</h2>
       <p class="hero__desc">
@@ -44,11 +45,109 @@
         This is a showcase of selected projects — playable footage and breakdowns,
         not downloadable builds.
       </p>
-      <a href="portfolio.html" class="hero__cta">View Portfolio →</a>
+      <a href="#portfolio" class="hero__cta">View Portfolio →</a>
+    </section>
+
+    <!-- ---------- ABOUT ---------- -->
+    <section id="about" class="section">
+      <div class="eyebrow">FIG. 02 — ABOUT</div>
+      <h2 class="section__title">A short technical profile.</h2>
+
+      <div class="about__grid">
+        <div class="about__text">
+          <p>
+            Replace this with a couple of paragraphs about your background: what you build,
+            what you specialize in (gameplay systems, AI, VR interaction, tools), and what
+            kind of projects you're looking for.
+          </p>
+          <p>
+            Keep it concrete — engines, languages, and the kind of problems you enjoy solving.
+          </p>
+        </div>
+
+        <ul class="spec-list">
+          <li><span>Engine</span><span>Unity (URP / XR Toolkit)</span></li>
+          <li><span>Languages</span><span>C#, HLSL basics</span></li>
+          <li><span>Focus</span><span>Gameplay systems, AI, VR interaction</span></li>
+          <li><span>Tools</span><span>Blender, Git, ...</span></li>
+          <li><span>Based in</span><span>Italy</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ---------- PORTFOLIO ---------- -->
+    <section id="portfolio" class="section">
+      <div class="eyebrow">FIG. 03 — PORTFOLIO</div>
+      <h2 class="section__title">Selected projects.</h2>
+      <p class="section__lead">Filter by platform or discipline.</p>
+
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter-chip is-active" data-filter="all">All</button>
+        <button class="filter-chip" data-filter="pc">PC</button>
+        <button class="filter-chip" data-filter="vr">VR</button>
+        <button class="filter-chip" data-filter="3d">3D Model</button>
+      </div>
+
+      <div class="project-grid" id="project-grid">
+
+        <!-- PROJECT CARD — duplicate this block per project -->
+        <article class="project-card" data-tags="pc vr">
+          <a href="project-example.html" class="project-card__media">
+            <!-- Replace with <img src="assets/your-image.jpg" alt="..."> or a <video> -->
+            IMAGE / VIDEO PLACEHOLDER
+          </a>
+          <div class="project-card__body">
+            <div class="project-card__tags"><span>PC</span><span>VR</span></div>
+            <h3 class="project-card__title">Project Title</h3>
+            <p class="project-card__desc">One-line summary of the project and your role in it.</p>
+            <a href="project-example.html" class="project-card__link">View project →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="3d">
+          <a href="project-example.html" class="project-card__media">
+            IMAGE / VIDEO PLACEHOLDER
+          </a>
+          <div class="project-card__body">
+            <div class="project-card__tags"><span>3D</span></div>
+            <h3 class="project-card__title">Another Project</h3>
+            <p class="project-card__desc">One-line summary of the project and your role in it.</p>
+            <a href="project-example.html" class="project-card__link">View project →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="pc">
+          <a href="project-example.html" class="project-card__media">
+            IMAGE / VIDEO PLACEHOLDER
+          </a>
+          <div class="project-card__body">
+            <div class="project-card__tags"><span>PC</span></div>
+            <h3 class="project-card__title">Third Project</h3>
+            <p class="project-card__desc">One-line summary of the project and your role in it.</p>
+            <a href="project-example.html" class="project-card__link">View project →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ---------- OFFTOPIC ---------- -->
+    <section id="offtopic" class="section">
+      <div class="eyebrow">FIG. 04 — OFFTOPIC</div>
+      <h2 class="section__title">Other things.</h2>
+      <p class="section__lead">Sketches, jam entries, experiments — whatever doesn't fit above.</p>
+
+      <div class="offtopic__grid">
+        <div class="offtopic__item">ITEM</div>
+        <div class="offtopic__item">ITEM</div>
+        <div class="offtopic__item">ITEM</div>
+        <div class="offtopic__item">ITEM</div>
+      </div>
     </section>
 
   </main>
 </div>
 
+<script src="js/main.js"></script>
 </body>
 </html>

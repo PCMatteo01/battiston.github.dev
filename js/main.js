@@ -1,4 +1,4 @@
-// ---------- Portfolio filtering (only present on portfolio.html) ----------
+// ---------- Portfolio filtering ----------
 const filterChips = document.querySelectorAll('.filter-chip');
 const projectCards = document.querySelectorAll('.project-card');
 
@@ -16,3 +16,20 @@ filterChips.forEach(chip => {
     });
   });
 });
+
+// ---------- Active nav link on scroll ----------
+const sections = document.querySelectorAll('.section[id]');
+const navLinks = document.querySelectorAll('.sidebar__nav a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+
+sections.forEach(section => observer.observe(section));
