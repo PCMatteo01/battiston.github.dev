@@ -1,0 +1,250 @@
+/* =========================================================
+   PROJECT THEME — NORMANDIA
+   Scoped to body.theme-normandia. Overrides the base "print
+   bed" tokens with a field-dossier palette for this project
+   page's main content only. The sidebar keeps the site-wide
+   identity/branding untouched for continuity across pages.
+   ========================================================= */
+body.theme-normandia {
+  --ink-blue: #171509;
+  --ink-blue-deep: #100e07;
+  --grid-line: rgba(196, 168, 102, 0.10);
+  --grid-line-strong: rgba(196, 168, 102, 0.32);
+  --paper: #ece5cf;
+  --paper-dim: #a89b7c;
+  --amber: #b23a2e;        /* stamp red */
+  --amber-dim: #8c2c22;
+  --cyan-tag: #6b7a4f;     /* olive drab */
+
+  --font-display: 'Special Elite', var(--font-mono);
+  --font-mono: 'Special Elite', monospace;
+
+  background-color: var(--ink-blue);
+  background-image:
+    var(--noise),
+    repeating-linear-gradient(135deg, rgba(196,168,102,0.05) 0px, rgba(196,168,102,0.05) 1px, transparent 1px, transparent 26px),
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196, 168, 102, 0.07), transparent 60%),
+    radial-gradient(ellipse 120% 90% at 50% 100%, rgba(0, 0, 0, 0.55), transparent 55%);
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
+  background-position: 0 0, 0 0, top right, 0 0;
+  background-size: auto, auto, cover, auto;
+  background-attachment: fixed, fixed, fixed, fixed;
+}
+
+/* Keep the sidebar identical to every other page — reset the
+   cascaded tokens back to the site defaults within its subtree
+   so the theme only ever touches .main content. */
+body.theme-normandia .sidebar {
+  --ink-blue-deep: #08090a;
+  --grid-line: rgba(255, 255, 255, 0.09);
+  --grid-line-strong: rgba(255, 255, 255, 0.18);
+  --paper: #f2f4f3;
+  --paper-dim: #9aa19d;
+  --amber: #ff5a33;
+  --amber-dim: #cc4626;
+  --cyan-tag: #57d6c4;
+  --font-display: 'IBM Plex Mono', monospace;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+/* Bigger, rougher display type for titles in this theme */
+body.theme-normandia .main .section__title,
+body.theme-normandia .main .hero__title {
+  font-family: 'Black Ops One', var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+body.theme-normandia .main .section__title {
+  font-size: 34px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.35);
+}
+
+body.theme-normandia .main .eyebrow {
+  letter-spacing: 0.14em;
+}
+
+/* Third column — a full-height image banner to the right of the
+   page, mirroring the sidebar on the opposite edge. Only kicks in
+   on wide viewports; collapses away on narrower ones. */
+.side-banner { display: none; }
+
+@media (min-width: 1280px) {
+  body.theme-normandia .layout {
+    grid-template-columns: 340px 1fr 340px;
+  }
+  /* The centre column was capped at 1100px by the base theme,
+     which left a dead gap before this new column on wide
+     viewports — let it fill the grid track instead. */
+  body.theme-normandia .main {
+    max-width: none;
+    padding-right: 40px;
+  }
+  .side-banner {
+    display: block;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    overflow: hidden;
+    border-left: 1px solid var(--grid-line-strong);
+    background: #14120b;
+    filter: sepia(0.15);
+  }
+  .side-banner__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 60% 40%;
+    display: block;
+  }
+}
+
+/* "Role in the project" summary — a paper-colored card dropped
+   into the page, like a report page attached to the dossier. */
+.role-block {
+  background: var(--paper);
+  color: #2a2416;
+  border-left: 4px solid var(--amber);
+  padding: 28px 32px;
+  max-width: 760px;
+  margin-top: 32px;
+}
+.role-block h3 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0 0 14px;
+  color: #171509;
+}
+.role-block p { color: #4a4432; margin: 0 0 14px; }
+.role-block ul { margin: 0; padding-left: 20px; }
+.role-block li { color: #4a4432; margin-bottom: 6px; }
+.role-block li:last-child { margin-bottom: 0; }
+
+/* Rubber-stamp badge */
+.stamp {
+  display: inline-block;
+  border: 3px double var(--amber);
+  color: var(--amber);
+  font-family: 'Black Ops One', var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  transform: rotate(-4deg);
+  opacity: 0.9;
+  background: rgba(178, 58, 46, 0.06);
+  margin-bottom: 28px;
+}
+
+/* Dossier-style photo frame for media placeholders on this page */
+body.theme-normandia .project-card__media {
+  border: 1px solid var(--grid-line-strong);
+  background:
+    repeating-linear-gradient(45deg, rgba(196,168,102,0.05) 0px, rgba(196,168,102,0.05) 2px, transparent 2px, transparent 10px),
+    #201c10;
+  filter: sepia(0.15);
+}
+body.theme-normandia .main .crosshair::before,
+body.theme-normandia .main .crosshair::after,
+body.theme-normandia .side-banner::before,
+body.theme-normandia .side-banner::after {
+  border-color: var(--amber);
+  width: 18px;
+  height: 18px;
+}
+
+/* Washi-tape corner accents on detail-row photos */
+body.theme-normandia .detail-row__media::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 24px;
+  width: 60px;
+  height: 20px;
+  background: rgba(196, 168, 102, 0.28);
+  border: 1px solid rgba(196, 168, 102, 0.4);
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+body.theme-normandia .detail-row.is-reverse .detail-row__media::before {
+  left: auto;
+  right: 24px;
+  transform: rotate(3deg);
+}
+
+body.theme-normandia .detail-row__text h3 {
+  font-family: 'Black Ops One', var(--font-display);
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 860px) {
+  body.theme-normandia .section__title { font-size: 26px; }
+}
+
+/* =========================================================
+   TOP-OF-PAGE ENTRANCE ANIMATIONS
+   The hero block (eyebrow, stamp, title, tags, intro, role
+   block) sits above the fold and is never caught by the
+   scroll-reveal observer, so it gets its own load-in timeline
+   instead, staggered top to bottom like a dossier being
+   stamped and filled in.
+   ========================================================= */
+@keyframes normandia-fade-down {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes normandia-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes normandia-stamp-in {
+  0%   { opacity: 0; transform: rotate(-4deg) scale(2.4); }
+  55%  { opacity: 1; }
+  100% { opacity: 0.9; transform: rotate(-4deg) scale(1); }
+}
+@keyframes normandia-banner-in {
+  from { opacity: 0; transform: scale(1.08); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+body.theme-normandia .main .eyebrow {
+  animation: normandia-fade-down 0.6s ease both;
+}
+body.theme-normandia .stamp {
+  animation: normandia-stamp-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 0.12s;
+}
+body.theme-normandia .main .section__title {
+  animation: normandia-fade-up 0.7s ease both;
+  animation-delay: 0.2s;
+}
+body.theme-normandia .main .project-card__tags {
+  animation: normandia-fade-up 0.6s ease both;
+  animation-delay: 0.36s;
+}
+body.theme-normandia .main > .section:nth-of-type(2) > p {
+  animation: normandia-fade-up 0.6s ease both;
+  animation-delay: 0.46s;
+}
+body.theme-normandia .role-block {
+  animation: normandia-fade-up 0.7s ease both;
+  animation-delay: 0.58s;
+}
+.side-banner__img {
+  animation: normandia-banner-in 1.4s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.theme-normandia .main .eyebrow,
+  body.theme-normandia .stamp,
+  body.theme-normandia .main .section__title,
+  body.theme-normandia .main .project-card__tags,
+  body.theme-normandia .main > .section:nth-of-type(2) > p,
+  body.theme-normandia .role-block,
+  .side-banner__img {
+    animation: none;
+  }
+}

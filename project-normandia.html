@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Normandia — Matteo Battiston</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Black+Ops+One&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/theme-normandia.css">
+</head>
+<body class="theme-normandia">
+
+<div class="layout">
+
+  <!-- ============ SIDEBAR (same as index.html) ============ -->
+  <aside class="sidebar crosshair">
+    <div>
+      <div class="sidebar__id">LAYER 00 — IDENTITY</div>
+      <h1 class="sidebar__name">Matteo<br>Battiston</h1>
+      <div class="sidebar__contact">
+        <a href="https://www.linkedin.com/in/battiston-matteo/" target="_blank" rel="noopener">in/ battiston-matteo</a>
+        <a href="mailto:battistonmatteo.work@gmail.com">battistonmatteo.work@gmail.com</a>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#portfolio" class="is-active">Portfolio</a>
+      <a href="index.html#offtopic">Offtopic</a>
+    </nav>
+
+    <div class="sidebar__footer">Unity Developer<br>PC · VR · 3D</div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <section class="section" style="margin-bottom: 40px;">
+      <a href="index.html#portfolio" class="project-card__link">← Back to portfolio</a>
+    </section>
+
+    <section class="section" style="margin-bottom: 48px;">
+      <div class="eyebrow">LAYER 05 — PROJECT DETAIL</div>
+      <div class="stamp">Operation Overlord · 06.06.1944</div>
+      <h2 class="section__title">Project Normandia</h2>
+      <div class="project-card__tags" style="margin-bottom: 24px;">
+        <span>PC</span><span>VR</span>
+      </div>
+      <p style="max-width: 900px;">
+        Project Normandia is an immersive VR simulation built for Meta Quest 3, developed during
+        my internship at Radica Design, recreating the Allied landings in Normandy on June 6, 1944.
+        The goal is historical divulgation through experiential learning: the player explores a
+        filologically accurate coastal battlefield, interacts with historical equipment, and can
+        switch between a slower-paced <strong>Tour mode</strong> for exploration and education, and
+        an <strong>Action FPS mode</strong> with physically accurate weapon handling and combat.
+        The application runs cross-platform (VR standalone and PC with mouse/keyboard) from the
+        same scene, and targets a stable 90 FPS on mobile VR hardware. The project is still under
+        active development.
+      </p>
+
+      <div class="role-block">
+        <h3>Role in the project</h3>
+        <p>
+          After an initial period pairing with another intern, I took over most of the project's
+          technical development, splitting my time between gameplay programming, 3D asset work,
+          and getting the whole thing to run smoothly on standalone VR hardware. Day to day, that meant:
+        </p>
+        <ul>
+          <li>Multi-platform architecture (VR + PC, shared scene)</li>
+          <li>Diegetic historical interaction panels (edutech)</li>
+          <li>VR locomotion and tactical ammo inventory</li>
+          <li>Weapon systems with physically-based reload</li>
+          <li>3D asset modeling and optimization (Blender)</li>
+          <li>Performance profiling for Meta Quest 3</li>
+          <li>Audio system</li>
+          <li>Core gameplay systems (health, scoring, timer)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" style="margin-bottom: 48px;">
+
+      <!-- ROW 1 — image left, text right -->
+      <div class="detail-row">
+        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
+          <div class="gallery__track">
+            <img src="assets/normandia/gmm-diagram.png" alt="GameModeManager architecture diagram: platform and mode detection, four player prefab variants, environment and input activation" style="object-fit: contain; background: #f4f1e8; padding: 10px;">
+            <video src="assets/normandia/menu.mp4" autoplay muted loop playsinline></video>
+          </div>
+          <button type="button" class="gallery__arrow gallery__arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button type="button" class="gallery__arrow gallery__arrow--next" aria-label="Next image">&#8250;</button>
+          <div class="gallery__dots"></div>
+        </div>
+        <div class="detail-row__text">
+          <h3>Multi-platform architecture</h3>
+          <p>
+            I designed the <strong>GameModeManager</strong>, a singleton that detects the running
+            platform (VR/PC) and selects between four player variants (VR FPS, VR Tour, PC FPS,
+            PC Tour), letting the same scene run unmodified across platforms and modes, with no
+            manual setup needed during testing or deploys.
+          </p>
+        </div>
+      </div>
+
+      <!-- ROW 2 — text left, image right -->
+      <div class="detail-row is-reverse">
+        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
+          <div class="gallery__track">
+            <video src="assets/normandia/belt-reload.mp4" autoplay muted loop playsinline></video>
+            <img src="assets/normandia/weapons-closeup.png" alt="Close-up of the M1 Garand, Thompson M1A1, Lee-Enfield and StG 44 weapon models" style="object-position: 60% 45%;">
+            <img src="assets/normandia/ammo-pouches-belt.png" alt="Tactical belt with four ammo pouches for the VR magazine reload system" style="object-position: 50% 45%;">
+          </div>
+          <button type="button" class="gallery__arrow gallery__arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button type="button" class="gallery__arrow gallery__arrow--next" aria-label="Next image">&#8250;</button>
+          <div class="gallery__dots"></div>
+        </div>
+        <div class="detail-row__text">
+          <h3>Weapon systems &amp; VR interaction</h3>
+          <p>
+            A component-based architecture (<strong>WeaponCore</strong>, VRWeaponController,
+            PCWeaponController) drives physically accurate reload mechanics for the M1 Garand
+            (en bloc clip, auto-eject) and Thompson M1A1 (manual bolt), shared across VR and PC
+            without duplicating logic. In VR, ammo is managed through a wearable tactical belt
+            (SimpleVRBelt, AmmoReturnSocket) that gives magnetic reload feedback for grabbing and
+            stowing magazines mid-action, keeping the player's hands on the weapon instead of a menu.
+          </p>
+        </div>
+      </div>
+
+      <!-- ROW 3 — image left, text right -->
+      <div class="detail-row">
+        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
+          <div class="gallery__track">
+            <video src="assets/normandia/point-interaction.mp4" autoplay muted loop playsinline></video>
+            <video src="assets/normandia/npc-interaction.mp4" autoplay muted loop playsinline></video>
+            <img src="assets/normandia/tank-obstacles-interactable.png" alt="Sherman tank on the beach highlighted as an interactable object, ready to show historical context" style="object-position: 55% 55%;">
+          </div>
+          <button type="button" class="gallery__arrow gallery__arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button type="button" class="gallery__arrow gallery__arrow--next" aria-label="Next image">&#8250;</button>
+          <div class="gallery__dots"></div>
+        </div>
+        <div class="detail-row__text">
+          <h3>Historical interaction &amp; edutech</h3>
+          <p>
+            Beyond combat, the project is built around <strong>experiential learning</strong>: looking at
+            or interacting with objects in the scene (vehicles, equipment, fortifications) triggers a
+            diegetic information panel with historical context drawn from verified sources, with no
+            menus breaking immersion. It's aimed at history enthusiasts, students, and museums or cultural
+            institutions looking for an experiential complement to traditional teaching material.
+          </p>
+        </div>
+      </div>
+
+      <!-- ROW 4 — text left, image right -->
+      <div class="detail-row is-reverse">
+        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
+          <div class="gallery__track">
+            <img src="assets/normandia/tank-landingcraft-sunset.png" alt="Sherman tank and landing craft on the beach at sunset, part of the optimized battle scene" style="object-position: 65% 55%;">
+            <img src="assets/normandia/soldier-advancing-rifle.png" alt="Soldier advancing with rifle raised across the beach under fire" style="object-position: 30% 55%;">
+          </div>
+          <button type="button" class="gallery__arrow gallery__arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button type="button" class="gallery__arrow gallery__arrow--next" aria-label="Next image">&#8250;</button>
+          <div class="gallery__dots"></div>
+        </div>
+        <div class="detail-row__text">
+          <h3>Gameplay &amp; performance</h3>
+          <ul>
+            <li>Dual VR locomotion (vignette-assisted continuous movement + parabolic teleport) to reduce motion sickness</li>
+            <li>Core gameplay loop: player health, scoring, match timer, end-of-match flow, diegetic wrist-mounted VR UI</li>
+            <li>Pooled <strong>AudioManager</strong> handling dozens of simultaneous spatial sound sources with minimal CPU overhead</li>
+            <li>Custom physics for dynamically altering gravity vectors and force constants</li>
+            <li>Retopology/LOD pipeline, baked lighting, draw call reduction and an event-driven refactor to hit a stable 90 FPS on Meta Quest 3</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="max-width: 720px; color: var(--paper-dim); font-family: var(--font-mono); font-size: 13px;">
+        More details are available on request, including the full project thesis.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ============ SIDE BANNER (project-specific, right column) ============ -->
+  <aside class="side-banner crosshair">
+    <img src="assets/normandia/hero-soldier-kneeling.png" alt="Soldier kneeling and firing a Thompson near the landing craft on the beach" class="side-banner__img">
+  </aside>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

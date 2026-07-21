@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Last Gunner: No Way Out — Matteo Battiston</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/theme-lastgunner.css">
+</head>
+<body class="theme-lastgunner">
+
+<div class="layout">
+
+  <!-- ============ SIDEBAR (same as index.html) ============ -->
+  <aside class="sidebar crosshair">
+    <div>
+      <div class="sidebar__id">LAYER 00 — IDENTITY</div>
+      <h1 class="sidebar__name">Matteo<br>Battiston</h1>
+      <div class="sidebar__contact">
+        <a href="https://www.linkedin.com/in/battiston-matteo/" target="_blank" rel="noopener">in/ battiston-matteo</a>
+        <a href="mailto:battistonmatteo.work@gmail.com">battistonmatteo.work@gmail.com</a>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#portfolio" class="is-active">Portfolio</a>
+      <a href="index.html#offtopic">Offtopic</a>
+    </nav>
+
+    <div class="sidebar__footer">Unity Developer<br>PC · VR · 3D</div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <section class="section" style="margin-bottom: 40px;">
+      <a href="index.html#portfolio" class="project-card__link">← Back to portfolio</a>
+    </section>
+
+    <section class="section" style="margin-bottom: 48px;">
+      <div class="eyebrow">LAYER 05 — PROJECT DETAIL</div>
+      <div class="stamp">Warning: horde inbound</div>
+      <h2 class="section__title">The Last Gunner: No Way Out</h2>
+      <div class="project-card__tags" style="margin-bottom: 24px;">
+        <span>PC</span><span>VR</span>
+      </div>
+      <p style="max-width: 900px;">
+        The Last Gunner: No Way Out is a wave-based survival shooter built in Unity 6, developed with
+        a five-person team for PC and Meta Quest. Set during an alternate WWII overrun by a
+        gas-mutated infection, the player is welded to the turret of a tank disabled by an anti-tank
+        mine, defending it alongside Anatolij, a young mechanic sent out on supply runs between
+        waves. The player is stationary and can only rotate, a deliberate constraint that also keeps
+        camera movement VR-comfort safe, while resources scavenged by the mechanic feed a crafting
+        system that keeps both of them alive as the horde scales up indefinitely.
+      </p>
+
+      <div class="featured-media project-card__media crosshair">
+        <video src="assets/lastgunner/gameplay.mp4" autoplay muted loop playsinline></video>
+      </div>
+
+      <div class="role-block">
+        <h3>Role in the project</h3>
+        <p>
+          Across the five-person team I acted as the project's VR and game designer, owning the
+          hands-on VR implementation, the core game and enemy design, and the audio system, on top of
+          modeling and texturing the main assets. Day to day, that meant:
+        </p>
+        <ul>
+          <li>VR weapon interaction (dual-grab reload handle, magazine physics, recoil)</li>
+          <li>Game &amp; enemy design (core loop, wave scaling, four enemy archetypes)</li>
+          <li>Narrative writing (staged dialogue system between the two characters)</li>
+          <li>3D modeling &amp; texturing of principal assets (tank, weapon, enemies)</li>
+          <li>Audio system architecture (FMOD buses/VCAs, spatial SFX)</li>
+          <li>Art direction (low-poly + pixel-art visual identity)</li>
+          <li>Enemy AI setup (NavMesh-driven horde behavior)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" style="margin-bottom: 48px;">
+
+      <!-- ROW 1 — image left, text right -->
+      <div class="detail-row">
+        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
+          <div class="gallery__track">
+            <video src="assets/lastgunner/gameplay.mp4" autoplay muted loop playsinline></video>
+          </div>
+          <button type="button" class="gallery__arrow gallery__arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button type="button" class="gallery__arrow gallery__arrow--next" aria-label="Next image">&#8250;</button>
+          <div class="gallery__dots"></div>
+        </div>
+        <div class="detail-row__text">
+          <h3>Core loop &amp; turret combat</h3>
+          <p>
+            The player is fixed inside the tank's turret, sharing one <strong>ITurretController</strong>
+            interface implemented separately for PC and VR so both platforms drive the same combat
+            logic. The mounted machine gun is modeled after the MG34 with a double-drum magazine,
+            a historically grounded way to justify the 75-round capacity without needing a belt-fed
+            reload in VR. Scoring reads hit location off each enemy's hitbox, rewarding headshots and
+            distance over point-blank body shots.
+          </p>
+        </div>
+      </div>
+
+      <!-- ROW 2 — text left, image right -->
+      <div class="detail-row is-reverse">
+        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
+          <div class="gallery__track">
+            <div class="media-placeholder">Mechanic AI &amp; dialogue<br>footage pending</div>
+          </div>
+          <button type="button" class="gallery__arrow gallery__arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button type="button" class="gallery__arrow gallery__arrow--next" aria-label="Next image">&#8250;</button>
+          <div class="gallery__dots"></div>
+        </div>
+        <div class="detail-row__text">
+          <h3>NPC companion &amp; AI</h3>
+          <p>
+            Anatolij, the mechanic, is sent out to scavenge and returns automatically or on command,
+            handing off whatever he picked up to the player's inventory. While outside he can be
+            grabbed by the horde, triggering a timed rescue event the player has to resolve by shooting
+            the attacker without hitting him. Back inside the tank he mans a front-facing automated
+            machine gun, and the two characters trade scripted dialogue across five story beats that I
+            wrote to carry the narrative without cutscenes.
+          </p>
+        </div>
+      </div>
+
+      <!-- ROW 3 — image left, text right -->
+      <div class="detail-row">
+        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
+          <div class="gallery__track">
+            <div class="media-placeholder">Crafting &amp; inventory UI<br>footage pending</div>
+          </div>
+          <button type="button" class="gallery__arrow gallery__arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button type="button" class="gallery__arrow gallery__arrow--next" aria-label="Next image">&#8250;</button>
+          <div class="gallery__dots"></div>
+        </div>
+        <div class="detail-row__text">
+          <h3>Crafting &amp; survival economy</h3>
+          <p>
+            Every scavenged material feeds a crafting system built around scriptable-object recipes,
+            each combining two dropped items into a buff for the mechanic (bandages, plated armor,
+            stimulants) or the turret (ammo, damage rounds, faster reloads). Crafting is only available
+            while the mechanic is inside the tank, since he's the one actually assembling everything,
+            and a run's score can be converted into currency for a meta-progression shop between
+            matches.
+          </p>
+        </div>
+      </div>
+
+      <!-- ROW 4 — text left, image right -->
+      <div class="detail-row is-reverse">
+        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
+          <div class="gallery__track">
+            <div class="media-placeholder">Enemy variants &amp; horde<br>footage pending</div>
+          </div>
+          <button type="button" class="gallery__arrow gallery__arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button type="button" class="gallery__arrow gallery__arrow--next" aria-label="Next image">&#8250;</button>
+          <div class="gallery__dots"></div>
+        </div>
+        <div class="detail-row__text">
+          <h3>Enemies &amp; infinite waves</h3>
+          <p>
+            Four enemy archetypes, each designed with a distinct combat read: the slow Farmer whose
+            pitchfork punishes the mechanic, the Crawler that climbs onto the tank to steal loot before
+            fleeing, the Bloated zombie whose pustules detonate into an area attack, and the Spore
+            zombie that heals nearby enemies. A horde controller escalates enemy count and drop rates
+            wave over wave with no hard difficulty cap, and every run's score, kill count and round
+            reached are saved to a local leaderboard.
+          </p>
+        </div>
+      </div>
+
+      <!-- ROW 5 — image left, text right -->
+      <div class="detail-row">
+        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
+          <div class="gallery__track">
+            <div class="media-placeholder">VR reload &amp; recoil<br>footage pending</div>
+          </div>
+          <button type="button" class="gallery__arrow gallery__arrow--prev" aria-label="Previous image">&#8249;</button>
+          <button type="button" class="gallery__arrow gallery__arrow--next" aria-label="Next image">&#8250;</button>
+          <div class="gallery__dots"></div>
+        </div>
+        <div class="detail-row__text">
+          <h3>VR interaction &amp; audio</h3>
+          <ul>
+            <li>Dual-grab drum magazine with a physically driven reload handle and matching recoil feedback</li>
+            <li>Custom extensions on top of XR Interaction Toolkit for offset grabs and drop-height adjustment</li>
+            <li>FMOD-driven audio architecture with independent buses/VCAs for master, ambience and zombie SFX</li>
+            <li>Dozens of simultaneous spatialized enemy and environment sounds mixed through the same bus graph</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="max-width: 720px; color: var(--paper-dim); font-family: var(--font-mono); font-size: 13px;">
+        More details are available on request, including the full game design document.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ============ SIDE BANNER (project-specific, right column) ============ -->
+  <aside class="side-banner crosshair">
+    <img src="assets/lastgunner/horde-banner-red.png" alt="Rows of low-poly zombies reaching toward the camera on a blood-red background" class="side-banner__img">
+  </aside>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

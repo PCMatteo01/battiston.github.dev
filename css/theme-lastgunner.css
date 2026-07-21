@@ -1,0 +1,268 @@
+/* =========================================================
+   PROJECT THEME — THE LAST GUNNER: NO WAY OUT
+   Scoped to body.theme-lastgunner. Horror/gacha arcade look:
+   toxic-green HUD text, blood-red alert accents, near-black
+   CRT background. The sidebar keeps the site-wide identity
+   untouched for continuity across pages.
+   ========================================================= */
+body.theme-lastgunner {
+  --ink-blue: #060a06;
+  --ink-blue-deep: #030503;
+  --grid-line: rgba(126, 224, 129, 0.08);
+  --grid-line-strong: rgba(126, 224, 129, 0.26);
+  --paper: #d8f5da;
+  --paper-dim: #7fa385;
+  --amber: #d8393a;        /* alert red */
+  --amber-dim: #a82b2c;
+  --cyan-tag: #7ee081;     /* toxic green */
+
+  --font-display: 'Press Start 2P', var(--font-mono);
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  background-color: var(--ink-blue);
+  background-image:
+    var(--noise),
+    repeating-linear-gradient(0deg, rgba(126,224,129,0.05) 0px, rgba(126,224,129,0.05) 1px, transparent 1px, transparent 4px),
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(126, 224, 129, 0.06), transparent 60%),
+    radial-gradient(ellipse 120% 90% at 50% 100%, rgba(0, 0, 0, 0.6), transparent 55%);
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
+  background-position: 0 0, 0 0, top right, 0 0;
+  background-size: auto, auto, cover, auto;
+  background-attachment: fixed, fixed, fixed, fixed;
+}
+
+/* Keep the sidebar identical to every other page — reset the
+   cascaded tokens back to the site defaults within its subtree
+   so the theme only ever touches .main content. */
+body.theme-lastgunner .sidebar {
+  --ink-blue-deep: #08090a;
+  --grid-line: rgba(255, 255, 255, 0.09);
+  --grid-line-strong: rgba(255, 255, 255, 0.18);
+  --paper: #f2f4f3;
+  --paper-dim: #9aa19d;
+  --amber: #ff5a33;
+  --amber-dim: #cc4626;
+  --cyan-tag: #57d6c4;
+  --font-display: 'IBM Plex Mono', monospace;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+/* Bigger, blockier display type for titles in this theme */
+body.theme-lastgunner .main .section__title,
+body.theme-lastgunner .main .hero__title {
+  font-family: 'Press Start 2P', var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+body.theme-lastgunner .main .section__title {
+  font-size: 24px;
+  text-shadow: 2px 2px 0 rgba(216, 57, 58, 0.45);
+}
+
+body.theme-lastgunner .main .eyebrow {
+  letter-spacing: 0.14em;
+}
+
+/* Third column — full-height image banner, mirroring the
+   sidebar on the opposite edge. Only kicks in on wide viewports. */
+.side-banner { display: none; }
+
+@media (min-width: 1280px) {
+  body.theme-lastgunner .layout {
+    grid-template-columns: 340px 1fr 340px;
+  }
+  body.theme-lastgunner .main {
+    max-width: none;
+    padding-right: 40px;
+  }
+  .side-banner {
+    display: block;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100vh;
+    overflow: hidden;
+    border-left: 1px solid var(--grid-line-strong);
+    background: #050704;
+  }
+  .side-banner__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* "Role in the project" summary — a dark HUD/terminal panel
+   instead of Normandia's paper card, in keeping with the
+   arcade-cabinet theme. */
+.role-block {
+  background: #0a140b;
+  color: #cfe9c9;
+  border-left: 4px solid var(--amber);
+  padding: 28px 32px;
+  max-width: 760px;
+  margin-top: 32px;
+}
+.role-block h3 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0 0 14px;
+  color: var(--cyan-tag);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.role-block p { color: #9fc79f; margin: 0 0 14px; }
+.role-block ul { margin: 0; padding-left: 20px; }
+.role-block li { color: #cfe9c9; margin-bottom: 6px; }
+.role-block li:last-child { margin-bottom: 0; }
+
+/* Rubber-stamp-style alert badge, reusing the shared .stamp
+   component with this theme's palette. */
+.stamp {
+  display: inline-block;
+  border: 3px double var(--amber);
+  color: var(--amber);
+  font-family: 'Press Start 2P', var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 18px;
+  line-height: 1.6;
+  transform: rotate(-2deg);
+  opacity: 0.95;
+  background: rgba(216, 57, 58, 0.08);
+  margin-bottom: 28px;
+}
+
+/* Arcade-cabinet / CRT photo frame for media placeholders */
+body.theme-lastgunner .project-card__media {
+  border: 1px solid var(--grid-line-strong);
+  background:
+    repeating-linear-gradient(0deg, rgba(126,224,129,0.06) 0px, rgba(126,224,129,0.06) 1px, transparent 1px, transparent 3px),
+    #081008;
+}
+body.theme-lastgunner .main .crosshair::before,
+body.theme-lastgunner .main .crosshair::after,
+body.theme-lastgunner .side-banner::before,
+body.theme-lastgunner .side-banner::after {
+  border-color: var(--cyan-tag);
+  width: 18px;
+  height: 18px;
+}
+
+body.theme-lastgunner .detail-row__text h3 {
+  font-family: 'Press Start 2P', var(--font-display);
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+/* Featured gameplay reel, shown large before the role block —
+   bigger than the per-row gallery media below it. */
+.featured-media {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  margin-top: 32px;
+  overflow: hidden;
+}
+.featured-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder slot for media not yet supplied — a HUD-style
+   "awaiting feed" panel instead of a broken image, matching
+   the game's own diegetic UI language. */
+.media-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+  border: 1px dashed var(--grid-line-strong);
+}
+
+@media (max-width: 860px) {
+  body.theme-lastgunner .section__title { font-size: 19px; }
+}
+
+/* =========================================================
+   TOP-OF-PAGE ENTRANCE ANIMATIONS (same pattern as Normandia)
+   ========================================================= */
+@keyframes lastgunner-fade-down {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes lastgunner-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes lastgunner-stamp-in {
+  0%   { opacity: 0; transform: rotate(-2deg) scale(2.2); }
+  55%  { opacity: 1; }
+  100% { opacity: 0.95; transform: rotate(-2deg) scale(1); }
+}
+@keyframes lastgunner-banner-in {
+  from { opacity: 0; transform: scale(1.08); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+body.theme-lastgunner .main .eyebrow {
+  animation: lastgunner-fade-down 0.6s ease both;
+}
+body.theme-lastgunner .stamp {
+  animation: lastgunner-stamp-in 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 0.12s;
+}
+body.theme-lastgunner .main .section__title {
+  animation: lastgunner-fade-up 0.7s ease both;
+  animation-delay: 0.2s;
+}
+body.theme-lastgunner .main .project-card__tags {
+  animation: lastgunner-fade-up 0.6s ease both;
+  animation-delay: 0.36s;
+}
+body.theme-lastgunner .main > .section:nth-of-type(2) > p {
+  animation: lastgunner-fade-up 0.6s ease both;
+  animation-delay: 0.46s;
+}
+.featured-media {
+  animation: lastgunner-fade-up 0.7s ease both;
+  animation-delay: 0.56s;
+}
+body.theme-lastgunner .role-block {
+  animation: lastgunner-fade-up 0.7s ease both;
+  animation-delay: 0.7s;
+}
+.side-banner__img, .side-banner .media-placeholder {
+  animation: lastgunner-banner-in 1.4s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.theme-lastgunner .main .eyebrow,
+  body.theme-lastgunner .stamp,
+  body.theme-lastgunner .main .section__title,
+  body.theme-lastgunner .main .project-card__tags,
+  body.theme-lastgunner .main > .section:nth-of-type(2) > p,
+  .featured-media,
+  body.theme-lastgunner .role-block,
+  .side-banner__img,
+  .side-banner .media-placeholder {
+    animation: none;
+  }
+}
