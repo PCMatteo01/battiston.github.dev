@@ -19,6 +19,7 @@
       <h1 class="sidebar__name">Matteo<br>Battiston</h1>
       <div class="sidebar__contact">
         <a href="https://linkedin.com/in/matteo-battiston" target="_blank" rel="noopener">in/ matteo-battiston</a>
+        <a href="https://sketchfab.com/battistonmatteo" target="_blank" rel="noopener">sketchfab/ battistonmatteo</a>
         <a href="mailto:matteo.battiston@example.com">matteo.battiston@example.com</a>
       </div>
     </div>
@@ -69,11 +70,13 @@
         </ul>
       </div>
 
-      <!-- ADDITIONAL GALLERY -->
-      <div class="project-grid" style="margin-top: 48px;">
-        <div class="project-card__media crosshair" style="aspect-ratio: 4/3;">SCREENSHOT 1</div>
-        <div class="project-card__media crosshair" style="aspect-ratio: 4/3;">SCREENSHOT 2</div>
-        <div class="project-card__media crosshair" style="aspect-ratio: 4/3;">SCREENSHOT 3</div>
+      <!-- ADDITIONAL GALLERY — scroll-gallery autoplays and pauses on manual
+           scroll (see js/main.js); img/video inside get lightbox zoom for free -->
+      <h3 style="font-family: var(--font-mono); font-size: 20px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--cyan-tag); margin: 48px 0 20px;">Gallery</h3>
+      <div class="scroll-gallery">
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">SCREENSHOT 1</div>
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">SCREENSHOT 2</div>
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">SCREENSHOT 3</div>
       </div>
     </section>
 

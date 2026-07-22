@@ -128,39 +128,141 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
   goTo(0);
 });
 
-// ---------- Lightbox (click an image to zoom) ----------
-// Only images that aren't inside a link get this — on the portfolio grid
-// the thumbnail IS the "view project" link, so clicking it must still navigate.
-const zoomableImgs = document.querySelectorAll('main img, .side-banner img');
+// ---------- Scroll gallery autoplay (pauses on manual scroll, then resumes) ----------
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const RESUME_DELAY = 2500;
 
-if (zoomableImgs.length) {
+document.querySelectorAll('.scroll-gallery').forEach(gallery => {
+  if (prefersReducedMotion) {
+    gallery.classList.add('is-interactive');
+    return;
+  }
+
+  let rafId = null;
+  let resumeTimer = null;
+  let inView = false;
+
+  function step() {
+    if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1) {
+      gallery.scrollLeft = 0;
+    } else {
+      gallery.scrollLeft += 0.7;
+    }
+    rafId = requestAnimationFrame(step);
+  }
+
+  function play() {
+    gallery.classList.remove('is-interactive');
+    if (!rafId && inView) rafId = requestAnimationFrame(step);
+  }
+
+  function pause() {
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    gallery.classList.add('is-interactive');
+  }
+
+  function scheduleResume() {
+    pause();
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(play, RESUME_DELAY);
+  }
+
+  // Only a genuinely horizontal gesture counts as "the user is scrolling
+  // the gallery" — a vertical wheel/swipe over it is just page scrolling
+  // passing through and must not pause the autoplay.
+  gallery.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) scheduleResume();
+  }, { passive: true });
+
+  // Mouse only here — touch already has its own direction check below,
+  // and pointerdown fires for touch too, which would bypass it.
+  gallery.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse') scheduleResume();
+  }, { passive: true });
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+  gallery.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  gallery.addEventListener('touchmove', (e) => {
+    const dx = Math.abs(e.touches[0].clientX - touchStartX);
+    const dy = Math.abs(e.touches[0].clientY - touchStartY);
+    if (dx > dy) scheduleResume();
+  }, { passive: true });
+
+  // While paused, autoplay isn't touching scrollLeft, so any 'scroll' event
+  // can only be user-driven (scrollbar drag, touch momentum) — keep pushing
+  // the resume back until it's actually quiet again.
+  gallery.addEventListener('scroll', () => {
+    if (!rafId) scheduleResume();
+  }, { passive: true });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      inView = entry.isIntersecting;
+      if (inView) {
+        play();
+      } else {
+        pause();
+        clearTimeout(resumeTimer);
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(gallery);
+});
+
+// ---------- Lightbox (click an image or video to zoom) ----------
+// Only media that isn't inside a link gets this — on the portfolio grid
+// the thumbnail IS the "view project" link, so clicking it must still navigate.
+const zoomableMedia = document.querySelectorAll('main img, main video, .side-banner img, .side-banner video');
+
+if (zoomableMedia.length) {
   const overlay = document.createElement('div');
   overlay.className = 'lightbox-overlay';
-  overlay.innerHTML = '<button class="lightbox-overlay__close" aria-label="Close">&times;</button><img alt="">';
+  overlay.innerHTML = '<button class="lightbox-overlay__close" aria-label="Close">&times;</button><img alt=""><video muted loop playsinline controls></video>';
   document.body.appendChild(overlay);
   const overlayImg = overlay.querySelector('img');
+  const overlayVideo = overlay.querySelector('video');
   const closeBtn = overlay.querySelector('.lightbox-overlay__close');
 
-  function openLightbox(src, alt) {
-    overlayImg.src = src;
-    overlayImg.alt = alt || '';
+  function openLightbox(el) {
+    if (el.tagName === 'VIDEO') {
+      overlayVideo.src = el.currentSrc || el.src;
+      overlayVideo.style.display = '';
+      overlayImg.style.display = 'none';
+      overlayVideo.play();
+    } else {
+      overlayImg.src = el.currentSrc || el.src;
+      overlayImg.alt = el.alt || '';
+      overlayImg.style.display = '';
+      overlayVideo.style.display = 'none';
+    }
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
   function closeLightbox() {
     overlay.classList.remove('is-open');
     document.body.style.overflow = '';
+    overlayVideo.pause();
   }
 
-  overlay.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlayVideo) return;
+    closeLightbox();
+  });
   closeBtn.addEventListener('click', closeLightbox);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
   });
 
-  zoomableImgs.forEach(img => {
-    if (img.closest('a')) return;
-    img.classList.add('is-zoomable');
-    img.addEventListener('click', () => openLightbox(img.currentSrc || img.src, img.alt));
+  zoomableMedia.forEach(el => {
+    if (el.closest('a')) return;
+    el.classList.add('is-zoomable');
+    el.addEventListener('click', () => openLightbox(el));
   });
 }

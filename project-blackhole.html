@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Hole Render — Matteo Battiston</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ============ SIDEBAR (same as index.html) ============ -->
+  <aside class="sidebar crosshair">
+    <div>
+      <div class="sidebar__id">LAYER 00 — IDENTITY</div>
+      <h1 class="sidebar__name">Matteo<br>Battiston</h1>
+      <div class="sidebar__contact">
+        <a href="https://www.linkedin.com/in/battiston-matteo/" target="_blank" rel="noopener">in/ battiston-matteo</a>
+        <a href="https://sketchfab.com/battistonmatteo" target="_blank" rel="noopener">sketchfab/ battistonmatteo</a>
+        <a href="mailto:battistonmatteo.work@gmail.com">battistonmatteo.work@gmail.com</a>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#portfolio" class="is-active">Portfolio</a>
+      <a href="index.html#offtopic">Offtopic</a>
+    </nav>
+
+    <div class="sidebar__footer">Unity Developer<br>PC · VR · 3D</div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <section class="section" style="margin-bottom: 40px;">
+      <a href="index.html#portfolio" class="project-card__link">← Back to portfolio</a>
+    </section>
+
+    <section class="section" style="margin-bottom: 48px;">
+      <div class="eyebrow">LAYER 05 — PROJECT DETAIL</div>
+      <h2 class="section__title">Black Hole Render</h2>
+      <div class="project-card__tags" style="margin-bottom: 24px;">
+        <span>3D</span>
+      </div>
+      <p style="max-width: 900px;">
+        A standalone render exploring gravitational lensing, in the style of Interstellar's Gargantua.
+        Built entirely in Blender using shaders and geometry nodes, following
+        <a href="https://www.youtube.com/watch?v=XWv1Ajc3tfU" target="_blank" rel="noopener">this tutorial</a>.
+        It isn't tied to any project or game — just a personal study of the effect.
+      </p>
+
+      <div class="project-card__media crosshair" style="aspect-ratio: 16/9; margin-bottom: 8px;">
+        <img src="assets/blackhole/hero.jpg" alt="Black hole render with a lensed accretion disk, in the style of Interstellar's Gargantua">
+      </div>
+    </section>
+
+    <section class="section" style="margin-bottom: 48px;">
+      <h3 style="font-family: var(--font-mono); font-size: 20px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--cyan-tag); margin: 0 0 20px;">Gallery</h3>
+      <div class="scroll-gallery">
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">
+          <img src="assets/blackhole/angle-2.jpg" alt="Closer angle of the lensed accretion disk wrapping around the event horizon">
+        </div>
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">
+          <img src="assets/blackhole/angle-3.jpg" alt="Extreme close-up of the event horizon against a blue-tinted backdrop">
+        </div>
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">
+          <img src="assets/blackhole/angle-4.jpg" alt="Wide angle of the black hole set against a pink nebula backdrop">
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

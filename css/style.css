@@ -337,6 +337,34 @@ a { color: inherit; text-decoration: none; }
   .gallery__track { transition: none !important; }
 }
 
+/* ---------- SCROLL GALLERY (horizontal filmstrip) ---------- */
+.scroll-gallery {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--grid-line-strong) transparent;
+}
+/* Snap is only enabled once the user takes manual control — while the
+   autoplay loop drives scrollLeft itself, snapping would fight it. */
+.scroll-gallery.is-interactive { scroll-snap-type: x mandatory; }
+.scroll-gallery__item {
+  flex: 0 0 440px;
+  scroll-snap-align: start;
+}
+.scroll-gallery::-webkit-scrollbar { height: 8px; }
+.scroll-gallery::-webkit-scrollbar-track { background: transparent; }
+.scroll-gallery::-webkit-scrollbar-thumb {
+  background: var(--grid-line-strong);
+  border-radius: 4px;
+}
+.scroll-gallery::-webkit-scrollbar-thumb:hover { background: var(--amber); }
+
+@media (max-width: 640px) {
+  .scroll-gallery__item { flex-basis: 300px; }
+}
+
 /* ---------- PORTFOLIO FILTERS ---------- */
 .filters {
   display: flex;
@@ -529,7 +557,8 @@ a { color: inherit; text-decoration: none; }
   z-index: 1000;
 }
 .lightbox-overlay.is-open { opacity: 1; pointer-events: auto; }
-.lightbox-overlay img {
+.lightbox-overlay img,
+.lightbox-overlay video {
   max-width: 90vw;
   max-height: 90vh;
   object-fit: contain;
@@ -538,7 +567,8 @@ a { color: inherit; text-decoration: none; }
   transform: scale(0.96);
   transition: transform 0.25s ease;
 }
-.lightbox-overlay.is-open img { transform: scale(1); }
+.lightbox-overlay.is-open img,
+.lightbox-overlay.is-open video { transform: scale(1); }
 .lightbox-overlay__close {
   position: absolute;
   top: 24px;
@@ -557,7 +587,7 @@ a { color: inherit; text-decoration: none; }
 .lightbox-overlay__close:hover { border-color: var(--amber); color: var(--amber); }
 
 @media (prefers-reduced-motion: reduce) {
-  .lightbox-overlay, .lightbox-overlay img { transition: none !important; }
+  .lightbox-overlay, .lightbox-overlay img, .lightbox-overlay video { transition: none !important; }
 }
 
 /* Respect reduced motion */
