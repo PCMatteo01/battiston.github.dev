@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Last Gunner: No Way Out — Matteo Battiston</title>
+<title>The Last Gunner: No Way Out - Matteo Battiston</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -16,7 +16,7 @@
   <!-- ============ SIDEBAR (same as index.html) ============ -->
   <aside class="sidebar crosshair">
     <div>
-      <div class="sidebar__id">LAYER 00 — IDENTITY</div>
+      <div class="sidebar__id">LAYER 00 - IDENTITY</div>
       <h1 class="sidebar__name">Matteo<br>Battiston</h1>
       <div class="sidebar__contact">
         <a href="https://www.linkedin.com/in/battiston-matteo/" target="_blank" rel="noopener">in/ battiston-matteo</a>
@@ -43,7 +43,7 @@
     </section>
 
     <section class="section" style="margin-bottom: 48px;">
-      <div class="eyebrow">LAYER 05 — PROJECT DETAIL</div>
+      <div class="eyebrow">LAYER 05 - PROJECT DETAIL</div>
       <div class="stamp">Warning: horde inbound</div>
       <h2 class="section__title">The Last Gunner: No Way Out</h2>
       <div class="project-card__tags" style="margin-bottom: 24px;">
@@ -94,7 +94,7 @@
 
     <section class="section" style="margin-bottom: 48px;">
 
-      <!-- ROW 1 — image left, text right -->
+      <!-- ROW 1 - image left, text right -->
       <div class="detail-row">
         <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
           <div class="gallery__track">
@@ -108,7 +108,7 @@
           <h3>Core loop &amp; turret combat</h3>
           <p>
             The core loop runs through a single <strong>ITurretController</strong> interface shared by PC
-            and VR, so both platforms drive the same combat logic without diverging balance — I
+            and VR, so both platforms drive the same combat logic without diverging balance. I
             implemented the VR side of it. I also modeled and textured the turret's machine gun, based on
             the MG34 with a double-drum magazine, a choice I made specifically to justify the 75-round
             capacity historically without needing a belt-fed reload in VR, and built the scoring rules,
@@ -118,7 +118,7 @@
         </div>
       </div>
 
-      <!-- ROW 2 — text left, image right -->
+      <!-- ROW 2 - text left, image right -->
       <div class="detail-row is-reverse">
         <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
           <div class="gallery__track">
@@ -135,14 +135,14 @@
             Anatolij, the mechanic, scavenges on his own, returns automatically or on command, and hands
             off whatever he picked up to the player's inventory. While outside he can be grabbed by the
             horde, triggering a timed rescue event the player has to resolve by shooting the attacker
-            without hitting him. I built his defensive role back inside the tank — the automated machine
-            gun he mans at the front of the vehicle — and wrote the five scripted dialogue beats the two
+            without hitting him. I built his defensive role back inside the tank (the automated machine
+            gun he mans at the front of the vehicle) and wrote the five scripted dialogue beats the two
             characters trade over a run to carry the narrative without cutscenes.
           </p>
         </div>
       </div>
 
-      <!-- ROW 3 — image left, text right -->
+      <!-- ROW 3 - image left, text right -->
       <div class="detail-row">
         <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
           <div class="gallery__track">
@@ -165,7 +165,7 @@
         </div>
       </div>
 
-      <!-- ROW 4 — text left, image right -->
+      <!-- ROW 4 - text left, image right -->
       <div class="detail-row is-reverse">
         <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
           <div class="gallery__track">
@@ -182,16 +182,18 @@
             Four enemy archetypes, each built around a distinct combat read: the slow Farmer whose
             pitchfork punishes the mechanic, the Crawler that climbs onto the tank to steal loot before
             fleeing, the Bloated zombie whose pustules detonate into an area attack, and the Spore zombie
-            that heals nearby enemies. I modeled and textured all four — including the Farmer's pitchfork
-            and hat props — and handled most of their in-engine setup myself, while the team built the
+            that heals nearby enemies. I modeled and textured all four, including the Farmer's pitchfork
+            and hat props, and handled most of their in-engine setup myself, while the team built the
             NavMesh-driven AI and horde-scaling logic on top.
           </p>
         </div>
       </div>
 
-      <!-- ROW 5 — image left, text right -->
+      <!-- ROW 5 - image left, text right -->
       <div class="detail-row">
-        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3;" data-gallery>
+        <!-- Media hidden until real VR reload/recoil footage is ready; text
+             takes the full row width in the meantime. -->
+        <div class="detail-row__media project-card__media crosshair gallery" style="aspect-ratio: 4/3; display: none;" data-gallery>
           <div class="gallery__track">
             <div class="media-placeholder">VR reload &amp; recoil<br>footage pending</div>
           </div>
@@ -204,7 +206,7 @@
           <p>
             The VR implementation and audio system were mine end to end. I built the dual-grab drum
             magazine with a physically driven reload handle and matching recoil feedback, extending the
-            XR Interaction Toolkit myself to support offset grabs and drop-height adjustment — neither
+            XR Interaction Toolkit myself to support offset grabs and drop-height adjustment, neither
             of which it handles out of the box. On the audio side I architected the whole FMOD setup:
             independent buses/VCAs for master, ambience and zombie SFX, mixed to keep dozens of
             simultaneous spatialized enemy and environment sounds legible through the same bus graph.
@@ -247,12 +249,6 @@
           <video src="assets/lastgunner/mechanic-walk.mp4" autoplay muted loop playsinline></video>
         </div>
       </div>
-    </section>
-
-    <section class="section" style="margin-bottom: 48px;">
-      <p style="max-width: 720px; color: var(--paper-dim); font-family: var(--font-mono); font-size: 13px;">
-        More details are available on request, including the full game design document.
-      </p>
     </section>
 
   </main>

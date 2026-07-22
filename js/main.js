@@ -128,9 +128,10 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
   goTo(0);
 });
 
-// ---------- Scroll gallery autoplay (pauses on manual scroll, then resumes) ----------
+// ---------- Scroll gallery autoplay (ping-pongs, pauses on manual scroll) ----------
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const RESUME_DELAY = 2500;
+const EDGE_PAUSE = 900;
 
 document.querySelectorAll('.scroll-gallery').forEach(gallery => {
   if (prefersReducedMotion) {
@@ -140,26 +141,46 @@ document.querySelectorAll('.scroll-gallery').forEach(gallery => {
 
   let rafId = null;
   let resumeTimer = null;
+  let edgeTimer = null;
   let inView = false;
+  let running = false;
+  let direction = 1;
 
   function step() {
-    if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1) {
-      gallery.scrollLeft = 0;
-    } else {
-      gallery.scrollLeft += 0.7;
+    const atEnd = gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1;
+    const atStart = gallery.scrollLeft <= 0;
+
+    // Rest a moment at each end before reversing, instead of bouncing
+    // back immediately — a hard instant reverse reads as jittery pingpong.
+    if ((direction === 1 && atEnd) || (direction === -1 && atStart)) {
+      rafId = null;
+      edgeTimer = setTimeout(() => {
+        edgeTimer = null;
+        direction *= -1;
+        if (running && inView) rafId = requestAnimationFrame(step);
+      }, EDGE_PAUSE);
+      return;
     }
+
+    gallery.scrollLeft += 0.7 * direction;
     rafId = requestAnimationFrame(step);
   }
 
   function play() {
+    running = true;
     gallery.classList.remove('is-interactive');
-    if (!rafId && inView) rafId = requestAnimationFrame(step);
+    if (!rafId && !edgeTimer && inView) rafId = requestAnimationFrame(step);
   }
 
   function pause() {
+    running = false;
     if (rafId) {
       cancelAnimationFrame(rafId);
       rafId = null;
+    }
+    if (edgeTimer) {
+      clearTimeout(edgeTimer);
+      edgeTimer = null;
     }
     gallery.classList.add('is-interactive');
   }
