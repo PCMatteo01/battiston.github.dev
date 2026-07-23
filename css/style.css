@@ -1,5 +1,5 @@
 /* =========================================================
-   PRINT BED PORTFOLIO — design tokens
+   PRINT BED PORTFOLIO - design tokens
    ========================================================= */
 :root {
   --ink-blue: #0b0c0e;        /* build-plate background */
@@ -16,10 +16,10 @@
   --font-body: 'IBM Plex Sans', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
-  /* fine render-grain, tiled — viewport texture instead of a flat fill */
+  /* fine render-grain, tiled - viewport texture instead of a flat fill */
   --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='90' height='90' filter='url(%23n)'/%3E%3C/svg%3E");
 
-  /* single non-tiled ring cluster, off-center — not repeated across the page */
+  /* single non-tiled ring cluster, off-center - not repeated across the page */
   --rings: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'%3E%3Ccircle cx='1700' cy='90' r='40' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='86' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='132' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='178' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='224' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='270' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='316' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='362' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='408' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='454' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='500' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='546' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='592' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='638' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='684' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='730' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='776' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='822' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='868' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='914' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='960' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='1006' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='1052' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='1098' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='1144' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3Ccircle cx='1700' cy='90' r='1190' fill='none' stroke='rgb(87,214,196)' stroke-opacity='0.16' stroke-width='1'/%3E%3C/svg%3E");
 }
 
@@ -47,7 +47,7 @@ body {
 
 a { color: inherit; text-decoration: none; }
 
-/* corner registration mark, reused on panels/cards — nozzle / bed-temp colors */
+/* corner registration mark, reused on panels/cards - nozzle / bed-temp colors */
 .crosshair { position: relative; }
 .crosshair::before,
 .crosshair::after {
@@ -229,6 +229,20 @@ a { color: inherit; text-decoration: none; }
   transition: background 0.15s ease, color 0.15s ease;
 }
 .hero__cta:hover { background: var(--amber); color: var(--ink-blue-deep); }
+.hero__render {
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  transform: translateY(-50%);
+  width: 46vw;
+  max-width: 560px;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: -1;
+}
+@media (max-width: 900px) {
+  .hero__render { display: none; }
+}
 
 /* ---------- ABOUT ---------- */
 .about__grid {
@@ -258,7 +272,7 @@ a { color: inherit; text-decoration: none; }
 .spec-list li span:first-child { flex: 0 0 auto; color: var(--paper-dim); text-transform: uppercase; letter-spacing: 0.06em; }
 .spec-list li span:last-child { flex: 1 1 auto; color: var(--paper); text-align: right; }
 
-/* ---------- PROJECT DETAIL — ALTERNATING ROWS ---------- */
+/* ---------- PROJECT DETAIL - ALTERNATING ROWS ---------- */
 .detail-row {
   display: flex;
   align-items: center;
@@ -330,7 +344,7 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
 }
 .gallery__dot.is-active { background: var(--amber); }
-/* Single-image galleries hide the chrome entirely — set by JS via this class */
+/* Single-image galleries hide the chrome entirely - set by JS via this class */
 .gallery.has-one-slide .gallery__arrow,
 .gallery.has-one-slide .gallery__dots { display: none; }
 
@@ -347,7 +361,7 @@ a { color: inherit; text-decoration: none; }
   scrollbar-width: thin;
   scrollbar-color: var(--grid-line-strong) transparent;
 }
-/* Snap is only enabled once the user takes manual control — while the
+/* Snap is only enabled once the user takes manual control - while the
    autoplay loop drives scrollLeft itself, snapping would fight it. */
 .scroll-gallery.is-interactive { scroll-snap-type: x mandatory; }
 .scroll-gallery__item {
@@ -498,7 +512,7 @@ a { color: inherit; text-decoration: none; }
 }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-/* Cards/list rows get an amber "trace" line drawn in as they reveal —
+/* Cards/list rows get an amber "trace" line drawn in as they reveal -
    echoes the nozzle laying down a line, matching the print-bed theme. */
 .reveal--trace { position: relative; overflow: hidden; }
 .reveal--trace::before {
@@ -514,7 +528,7 @@ a { color: inherit; text-decoration: none; }
   z-index: 2;
   /* Rows can land on a fractional pixel offset depending on cumulative
      row heights above them, which lets the browser's antialiasing wash
-     out a hairline bar almost completely — box-shadow reinforces it
+     out a hairline bar almost completely - box-shadow reinforces it
      regardless of the exact sub-pixel position. */
   box-shadow: 0 0 0 1px var(--amber);
 }

@@ -1,5 +1,5 @@
 /* =========================================================
-   PROJECT THEME — THE LAST GUNNER: NO WAY OUT
+   PROJECT THEME - THE LAST GUNNER: NO WAY OUT
    Scoped to body.theme-lastgunner. Horror/gacha arcade look:
    toxic-green HUD text, blood-red alert accents, near-black
    CRT background. The sidebar keeps the site-wide identity
@@ -31,7 +31,7 @@ body.theme-lastgunner {
   background-attachment: fixed, fixed, fixed, fixed;
 }
 
-/* Keep the sidebar identical to every other page — reset the
+/* Keep the sidebar identical to every other page - reset the
    cascaded tokens back to the site defaults within its subtree
    so the theme only ever touches .main content. */
 body.theme-lastgunner .sidebar {
@@ -64,7 +64,7 @@ body.theme-lastgunner .main .eyebrow {
   letter-spacing: 0.14em;
 }
 
-/* Third column — full-height image banner, mirroring the
+/* Third column - full-height image banner, mirroring the
    sidebar on the opposite edge. Only kicks in on wide viewports. */
 .side-banner { display: none; }
 
@@ -94,7 +94,7 @@ body.theme-lastgunner .main .eyebrow {
   }
 }
 
-/* "Role in the project" summary — a dark HUD/terminal panel
+/* "Role in the project" summary - a dark HUD/terminal panel
    instead of Normandia's paper card, in keeping with the
    arcade-cabinet theme. */
 .role-block {
@@ -161,7 +161,7 @@ body.theme-lastgunner .detail-row__text h3 {
   line-height: 1.6;
 }
 
-/* Featured gameplay reel, shown large before the role block —
+/* Featured gameplay reel, shown large before the role block -
    bigger than the per-row gallery media below it. */
 .featured-media {
   width: 100%;
@@ -177,7 +177,7 @@ body.theme-lastgunner .detail-row__text h3 {
   display: block;
 }
 
-/* Placeholder slot for media not yet supplied — a HUD-style
+/* Placeholder slot for media not yet supplied - a HUD-style
    "awaiting feed" panel instead of a broken image, matching
    the game's own diegetic UI language. */
 .media-placeholder {

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freezing Cold - Matteo Battiston</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Nosifer&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/theme-freezingcold.css">
+</head>
+<body class="theme-freezingcold">
+
+<div class="layout">
+
+  <!-- ============ SIDEBAR (same as index.html) ============ -->
+  <aside class="sidebar crosshair">
+    <div>
+      <div class="sidebar__id">LAYER 00 - IDENTITY</div>
+      <h1 class="sidebar__name">Matteo<br>Battiston</h1>
+      <div class="sidebar__contact">
+        <a href="https://www.linkedin.com/in/battiston-matteo/" target="_blank" rel="noopener">in/ battiston-matteo</a>
+        <a href="https://sketchfab.com/battistonmatteo" target="_blank" rel="noopener">sketchfab/ battistonmatteo</a>
+        <a href="mailto:battistonmatteo.work@gmail.com">battistonmatteo.work@gmail.com</a>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#portfolio" class="is-active">Portfolio</a>
+      <a href="index.html#offtopic">Offtopic</a>
+    </nav>
+
+    <div class="sidebar__footer">Unity Developer<br>PC · VR · 3D</div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+
+    <section class="section" style="margin-bottom: 40px;">
+      <a href="index.html#portfolio" class="project-card__link">← Back to portfolio</a>
+    </section>
+
+    <section class="section" style="margin-bottom: 48px;">
+      <div class="eyebrow">LAYER 05 - PROJECT DETAIL</div>
+      <h2 class="section__title">Freezing Cold</h2>
+      <div class="project-card__tags" style="margin-bottom: 24px;">
+        <span>PC</span>
+      </div>
+      <p style="max-width: 900px;">
+        A solo exploration/puzzle game built entirely from scratch. Code, art and 3d models, etc. all made
+        by hand, in less than 7 hours for a timed school exam.
+        The player wakes up lost in a snowy forest at night and has to gather sticks and keys, unlock gates, and follow environmental
+        hints to survive until morning, with footprints fading in the snow as they walk.
+        The game features 3 different endings depending on how the player handles the night, plus fully working main menu, pause menu, and end screens.
+        Given the time constraint, it's a small scope prototype, but one I'd like to keep expanding with more systems and content.
+      </p>
+
+      <div class="project-card__media crosshair" style="aspect-ratio: 16/9; margin-bottom: 8px;">
+        <video src="assets/freezingcold/hero.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </section>
+
+    <section class="section" style="margin-bottom: 48px;">
+      <div class="role-block">
+        <h3>Role in the project</h3>
+        <p>
+          Solo project, built from an empty template under a strict ~7 hour time limit for a school exam.
+          Every asset (models, materials, UI, sound) was made from scratch, alongside the full gameplay loop.
+        </p>
+        <ul>
+          <li>Player controller and footstep/footprint system</li>
+          <li>Key, stick and gate interaction mechanics</li>
+          <li>Environmental hint triggers and 3 branching endings</li>
+          <li>Functional main menu, pause menu and end screens</li>
+          <li>Terrain, snow environment and all assets built from scratch</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" style="margin-bottom: 48px;">
+      <h3 style="font-family: var(--font-mono); font-size: 20px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--cyan-tag); margin: 0 0 20px;">Gallery</h3>
+      <div class="scroll-gallery">
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">
+          <img src="assets/freezingcold/cabin-fire.png" alt="Bonfire burning next to a cabin in a snowy pine forest at night">
+        </div>
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">
+          <img src="assets/freezingcold/wander-warning.png" alt="Snowy forest path with the on-screen line 'I have to be careful not to wander too far away'">
+        </div>
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">
+          <img src="assets/freezingcold/key-hint.png" alt="Locked gate hint pointing the player toward a cabin across the map">
+        </div>
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">
+          <video src="assets/freezingcold/locked-gate.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="scroll-gallery__item project-card__media crosshair" style="aspect-ratio: 4/3;">
+          <video src="assets/freezingcold/green-vision.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

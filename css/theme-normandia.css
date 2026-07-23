@@ -1,5 +1,5 @@
 /* =========================================================
-   PROJECT THEME — NORMANDIA
+   PROJECT THEME - NORMANDIA
    Scoped to body.theme-normandia. Overrides the base "print
    bed" tokens with a field-dossier palette for this project
    page's main content only. The sidebar keeps the site-wide
@@ -31,7 +31,7 @@ body.theme-normandia {
   background-attachment: fixed, fixed, fixed, fixed;
 }
 
-/* Keep the sidebar identical to every other page — reset the
+/* Keep the sidebar identical to every other page - reset the
    cascaded tokens back to the site defaults within its subtree
    so the theme only ever touches .main content. */
 body.theme-normandia .sidebar {
@@ -63,7 +63,7 @@ body.theme-normandia .main .eyebrow {
   letter-spacing: 0.14em;
 }
 
-/* Third column — a full-height image banner to the right of the
+/* Third column - a full-height image banner to the right of the
    page, mirroring the sidebar on the opposite edge. Only kicks in
    on wide viewports; collapses away on narrower ones. */
 .side-banner { display: none; }
@@ -74,7 +74,7 @@ body.theme-normandia .main .eyebrow {
   }
   /* The centre column was capped at 1100px by the base theme,
      which left a dead gap before this new column on wide
-     viewports — let it fill the grid track instead. */
+     viewports - let it fill the grid track instead. */
   body.theme-normandia .main {
     max-width: none;
     padding-right: 40px;
@@ -99,7 +99,7 @@ body.theme-normandia .main .eyebrow {
   }
 }
 
-/* "Role in the project" summary — a paper-colored card dropped
+/* "Role in the project" summary - a paper-colored card dropped
    into the page, like a report page attached to the dossier. */
 .role-block {
   background: var(--paper);

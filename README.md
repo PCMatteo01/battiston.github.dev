@@ -1,4 +1,4 @@
-# Portfolio — starter scaffold
+# Portfolio - starter scaffold
 
 ## Struttura
 ```
@@ -20,7 +20,7 @@ assets/               → Metti qui le tue immagini/video
 
 - **Nome e contatti**: sidebar in `index.html` e `project-example.html` (sono duplicati, tienili sincronizzati)
 - **Testo Home/About**: sezioni `#home` e `#about` in `index.html`
-- **Progetti**: duplica il blocco `<article class="project-card">` per ogni progetto, aggiorna `data-tags` (usa `pc`, `vr`, `3d` — puoi combinarli tipo `data-tags="pc vr"`), immagine, titolo, descrizione, link
+- **Progetti**: duplica il blocco `<article class="project-card">` per ogni progetto, aggiorna `data-tags` (usa `pc`, `vr`, `3d` - puoi combinarli tipo `data-tags="pc vr"`), immagine, titolo, descrizione, link
 - **Immagini/video**: metti i file in `assets/`, poi nel posto dove vedi `IMAGE / VIDEO PLACEHOLDER` sostituisci con:
   ```html
   <img src="assets/nome-immagine.jpg" alt="Descrizione">
@@ -33,5 +33,5 @@ assets/               → Metti qui le tue immagini/video
 
 ## Note
 - Nessuna build scaricabile o WebGL giocabile: solo immagini/video + testo, come richiesto.
-- Font caricati da Google Fonts (Space Grotesk, IBM Plex Sans, IBM Plex Mono) — nessuna installazione necessaria.
+- Font caricati da Google Fonts (Space Grotesk, IBM Plex Sans, IBM Plex Mono) - nessuna installazione necessaria.
 - Il sito è responsive e rispetta `prefers-reduced-motion`.

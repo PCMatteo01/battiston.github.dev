@@ -39,10 +39,10 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
 if (!reduceMotion) {
   const revealSelector = '.project-card, .spec-list li, .offtopic__item, .detail-row, .project-grid > *';
-  // NOTE: .detail-row is excluded from the trace/overflow-hidden treatment —
+  // NOTE: .detail-row is excluded from the trace/overflow-hidden treatment -
   // its children (e.g. the Normandia theme's washi-tape corner accents) rely
   // on overflowing the row's box, which reveal--trace's overflow:hidden would clip.
-  // .spec-list li uses its own border-color transition instead (see CSS) —
+  // .spec-list li uses its own border-color transition instead (see CSS) -
   // more robust across browsers than an overlay bar at a computed offset.
   const traceSelector = '.project-card, .offtopic__item';
   const revealItems = document.querySelectorAll(revealSelector);
@@ -66,7 +66,7 @@ if (!reduceMotion) {
   }, { threshold: 0.15, rootMargin: '0px' });
 
   // Tightly-packed list rows (e.g. .spec-list) are observed as one group via
-  // their shared parent, instead of individually — a low-height row right at
+  // their shared parent, instead of individually - a low-height row right at
   // the edge of the viewport can otherwise get a slightly different
   // intersection timing than its neighbors, so it never gets revealed.
   const grouped = new Set();
@@ -151,7 +151,7 @@ document.querySelectorAll('.scroll-gallery').forEach(gallery => {
     const atStart = gallery.scrollLeft <= 0;
 
     // Rest a moment at each end before reversing, instead of bouncing
-    // back immediately — a hard instant reverse reads as jittery pingpong.
+    // back immediately - a hard instant reverse reads as jittery pingpong.
     if ((direction === 1 && atEnd) || (direction === -1 && atStart)) {
       rafId = null;
       edgeTimer = setTimeout(() => {
@@ -192,13 +192,13 @@ document.querySelectorAll('.scroll-gallery').forEach(gallery => {
   }
 
   // Only a genuinely horizontal gesture counts as "the user is scrolling
-  // the gallery" — a vertical wheel/swipe over it is just page scrolling
+  // the gallery" - a vertical wheel/swipe over it is just page scrolling
   // passing through and must not pause the autoplay.
   gallery.addEventListener('wheel', (e) => {
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) scheduleResume();
   }, { passive: true });
 
-  // Mouse only here — touch already has its own direction check below,
+  // Mouse only here - touch already has its own direction check below,
   // and pointerdown fires for touch too, which would bypass it.
   gallery.addEventListener('pointerdown', (e) => {
     if (e.pointerType === 'mouse') scheduleResume();
@@ -217,7 +217,7 @@ document.querySelectorAll('.scroll-gallery').forEach(gallery => {
   }, { passive: true });
 
   // While paused, autoplay isn't touching scrollLeft, so any 'scroll' event
-  // can only be user-driven (scrollbar drag, touch momentum) — keep pushing
+  // can only be user-driven (scrollbar drag, touch momentum) - keep pushing
   // the resume back until it's actually quiet again.
   gallery.addEventListener('scroll', () => {
     if (!rafId) scheduleResume();
@@ -238,7 +238,7 @@ document.querySelectorAll('.scroll-gallery').forEach(gallery => {
 });
 
 // ---------- Lightbox (click an image or video to zoom) ----------
-// Only media that isn't inside a link gets this — on the portfolio grid
+// Only media that isn't inside a link gets this - on the portfolio grid
 // the thumbnail IS the "view project" link, so clicking it must still navigate.
 const zoomableMedia = document.querySelectorAll('main img, main video, .side-banner img, .side-banner video');
 
